@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition & Diet | GreenLife Wellness Center</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/nutrition_diet.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="GreenLife Wellness Center Logo">
+            <h1>GreenLife Wellness Center</h1>
+        </div>
+
+        <!-- Menu Open Button (visible on mobile) -->
+        <button id="menu-open-button" class="fas fa-bars"></button>
+        <!-- Menu Close Button (inside nav for closing menu) -->
+        <button id="menu-close-button" class="fas fa-times"></button>
+
+        <nav class="navigation">
+            <a href="home.html">Home</a>
+            <div class="dropdown">
+                <a href="services.html" class="dropbtn">Services <i class="fas fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="ayurvedic_therapy.html">Ayurvedic Therapy</a>
+                    <a href="yoga_meditation.html">Yoga & Meditation</a>
+                    <a href="nutrition_diet.html">Nutrition & Diet</a>
+                    <a href="physiotherapy.html">Physiotherapy</a>
+                    <a href="massage_therapy.html">Massage Therapy</a>
+                </div>
+            </div>
+            <a href="home.html">About Us</a>
+            <a href="home.html">Gallery</a>
+            <a href="home.html">Contact</a>
+        </nav>
+        <div class="icon">
+            <div id="user-btn" class="fas fa-user"></div>
+            <div id="search-btn" class="fas fa-search"></div>
+        </div>
+    </header>
+
+    <!-- Login/Signup Form Popup -->
+    <div class="login-form-container" id="login-form-container">
+        <div class="login-form">
+            <i class="fas fa-times" id="form-close"></i>
+
+            <div class="form-tabs">
+                <div class="form-tab active" data-tab="login">Login</div>
+                <div class="form-tab" data-tab="signup">Signup</div>
+            </div>
+
+            <!-- Login Form -->
+            <form class="form-content active" id="login-form" action="php/login.php" method="POST">
+                <!-- Error Message Display -->
+                <div id="form-errors" class="error-message"
+                    style="color: red; text-align: center; margin-bottom: 10px;"></div>
+
+                <div class="input-box">
+                    <input type="email" name="email" placeholder="Email Address" required>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="register-link">
+                    <p>Not a member? <a href="#" id="switch-to-signup">Signup now</a></p>
+                </div>
+            </form>
+
+
+            <!-- Signup Form -->
+            <form class="form-content" id="signup-form" action="php/register.php" method="POST">
+                <!-- Feedback messages -->
+                <div id="signup-error-message"
+                    style="display: none; color: red; text-align: center; margin-bottom: 10px;"></div>
+                <div id="signup-success-message"
+                    style="display: none; color: green; text-align: center; margin-bottom: 10px;"></div>
+
+                <div class="input-box">
+                    <input type="text" name="fullname" placeholder="Full Name" required>
+                </div>
+                <div class="input-box">
+                    <input type="email" name="email" placeholder="Email Address" required>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="password" placeholder="Password (min 6 characters)" required
+                        minlength="6">
+                </div>
+                <div class="input-box">
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                </div>
+                <button type="submit" class="btn">Signup</button>
+                <div class="register-link">
+                    <p>Already a member? <a href="#" id="switch-to-login">Login now</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="search-form-container" id="search-form-container" style="display: none;">
+        <div class="search-form">
+            <i class="fas fa-times" id="search-close"></i>
+            <form action="php/search_results.php" method="GET">
+                <input type="text" name="query" placeholder="Search our services..." required>
+                <button type="submit" class="btn">Search</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchBtn = document.getElementById('search-btn');
+            const searchFormContainer = document.getElementById('search-form-container');
+            const searchClose = document.getElementById('search-close');
+
+            searchBtn.addEventListener('click', () => {
+                searchFormContainer.style.display = 'flex';
+            });
+
+            searchClose.addEventListener('click', () => {
+                searchFormContainer.style.display = 'none';
+            });
+
+            window.addEventListener('click', (e) => {
+                if (e.target === searchFormContainer) {
+                    searchFormContainer.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+    <!-- Landing Section -->
+    <section class="landing-section">
+        <div class="landing-content" data-aos="fade-up">
+            <h1>Nutrition & Diet Consultation</h1>
+            <p>Discover personalized nutrition plans tailored to your unique needs and goals. Our certified dietitians
+                create science-based meal plans that promote optimal health, weight management, and disease prevention
+                through balanced, wholesome nutrition.</p>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us">
+        <div class="container">
+            <h2 data-aos="fade-up">Why Choose Our Nutrition Services</h2>
+            <p class="subheading" data-aos="fade-up" data-aos-delay="100">Evidence-based nutrition guidance for lasting
+                health</p>
+
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Certified Nutrition Experts</h3>
+                    <p>Our dietitians hold advanced degrees in nutrition science and stay current with the latest
+                        research in dietary health.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Personalized Meal Plans</h3>
+                    <p>Customized nutrition programs based on your health goals, preferences, and lifestyle
+                        requirements.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Health Condition Support</h3>
+                    <p>Specialized diets for diabetes, heart health, digestive issues, food allergies, and other medical
+                        conditions.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon">
+                        <i class="fas fa-weight"></i>
+                    </div>
+                    <h3>Weight Management</h3>
+                    <p>Sustainable weight loss or gain programs focused on long-term success, not quick fixes.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="feature-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Scientific Approach</h3>
+                    <p>Nutrition recommendations based on clinical evidence and biochemical individuality.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Ongoing Support</h3>
+                    <p>Regular follow-ups and adjustments to ensure your nutritional plan continues to meet your needs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <h2 class="gallery-section-title">Gallery</h2>
+        <div class="gallery-content">
+            <ul class="gallery-list">
+                <li class="gallery-item"><img src="images/nutrition-1.jpg" alt="Nutrition" class="gallery-image">
+                </li>
+                <li class="gallery-item"><img src="images/nutrition-3.webp" alt="Nutrition" class="gallery-image">
+                </li>
+                <li class="gallery-item"><img src="images/nutrition-4.jpg" alt="Nutrition" class="gallery-image">
+                </li>
+                <li class="gallery-item"><img src="images/nutrition-2.png" alt="Nutrition" class="gallery-image">
+                </li>
+                <li class="gallery-item"><img src="images/nutrition-6.jpg" alt="Nutrition" class="gallery-image">
+                </li>
+                <li class="gallery-item"><img src="images/nutrition-5.jpg" alt="Nutrition" class="gallery-image">
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <p class="subheading">Hear from people who transformed their health through our nutrition programs</p>
+
+            <div class="swiper testimonials-swiper" data-aos="fade-up">
+                <div class="swiper-wrapper">
+                    <!-- Testimonial 1 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="client-info">
+                                <img src="images/user-13.jpeg" alt="Nayana Fernando" class="client-image">
+                                <div class="client-details">
+                                    <h4>Nayana Fernando</h4>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p>"After struggling with dieting for years, the personalized nutrition plan from
+                                    GreenLife finally helped me lose 25kg and keep it off. Dr. Perera taught me how to
+                                    eat for my body type and metabolism. Life-changing!"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="client-info">
+                                <img src="images/user-18.jpeg" alt="Dilshan Rajapaksa" class="client-image">
+                                <div class="client-details">
+                                    <h4>Dilshan Rajapaksa</h4>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p>"As a competitive athlete, Dr. Weerasekara's sports nutrition program took my
+                                    performance
+                                    to the next level. My recovery improved dramatically and I achieved personal bests
+                                    in all my events this season."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="client-info">
+                                <img src="images/user-14.jpeg" alt="Kavindi Jayawardena" class="client-image">
+                                <div class="client-details">
+                                    <h4>Kavindi Jayawardena</h4>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p>"Dr. Gunarathna helped me transition to a plant-based diet while managing my IBS.
+                                    Her food sensitivity testing and meal plans eliminated my digestive issues
+                                    completely. Now I enjoy meals without worry, and my energy levels have soared!"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 4 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="client-info">
+                                <img src="images/user-17.jpeg" alt="Sachin Silva" class="client-image">
+                                <div class="client-details">
+                                    <h4>Sachin Silva</h4>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p>"After being diagnosed with prediabetes, the nutrition program at GreenLife helped me
+                                    reverse my condition in just 6 months. My doctor was amazed at my bloodwork
+                                    improvements. This is real, science-based nutrition advice."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add pagination -->
+                <div class="swiper-pagination"></div>
+
+                <!-- Add navigation buttons -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="GreenLife Logo">
+                <h3>GreenLife Wellness Center</h3>
+                <p>Embrace holistic healing and a healthier lifestyle with us in the heart of Colombo.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="home.html">Services</a></li>
+                    <li><a href="home.html">About Us</a></li>
+                    <li><a href="home.html">Gallery</a></li>
+                    <li><a href="home.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</p>
+                <p><i class="fas fa-envelope"></i> info@greenlifewellness.lk</p>
+                <p><i class="fas fa-phone"></i> +94 77 294 0628</p>
+            </div>
+
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 GreenLife Wellness Center. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/services.js"></script>
+    <script>
+        // Initialize AOS animation library
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+</body>
+
+</html>

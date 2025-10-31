@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Massage Therapy | GreenLife Wellness Center</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/massage_therapy.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="GreenLife Wellness Center Logo">
+            <h1>GreenLife Wellness Center</h1>
+        </div>
+
+        <!-- Menu Open Button (visible on mobile) -->
+        <button id="menu-open-button" class="fas fa-bars"></button>
+        <!-- Menu Close Button (inside nav for closing menu) -->
+        <button id="menu-close-button" class="fas fa-times"></button>
+
+        <nav class="navigation">
+            <a href="home.html">Home</a>
+            <div class="dropdown">
+                <a href="services.html" class="dropbtn">Services <i class="fas fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="ayurvedic_therapy.html">Ayurvedic Therapy</a>
+                    <a href="yoga_meditation.html">Yoga & Meditation</a>
+                    <a href="nutrition_diet.html">Nutrition & Diet</a>
+                    <a href="physiotherapy.html">Physiotherapy</a>
+                    <a href="massage_therapy.html">Massage Therapy</a>
+                </div>
+            </div>
+            <a href="home.html">About Us</a>
+            <a href="home.html">Gallery</a>
+            <a href="home.html">Contact</a>
+        </nav>
+        <div class="icon">
+            <div id="user-btn" class="fas fa-user"></div>
+            <div id="search-btn" class="fas fa-search"></div>
+        </div>
+    </header>
+
+    <!-- Login/Signup Form Popup -->
+    <div class="login-form-container" id="login-form-container">
+        <div class="login-form">
+            <i class="fas fa-times" id="form-close"></i>
+
+            <div class="form-tabs">
+                <div class="form-tab active" data-tab="login">Login</div>
+                <div class="form-tab" data-tab="signup">Signup</div>
+            </div>
+
+            <!-- Login Form -->
+            <form class="form-content active" id="login-form" action="php/login.php" method="POST">
+                <!-- Error Message Display -->
+                <div id="form-errors" class="error-message"
+                    style="color: red; text-align: center; margin-bottom: 10px;"></div>
+
+                <div class="input-box">
+                    <input type="email" name="email" placeholder="Email Address" required>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="register-link">
+                    <p>Not a member? <a href="#" id="switch-to-signup">Signup now</a></p>
+                </div>
+            </form>
+
+
+            <!-- Signup Form -->
+            <form class="form-content" id="signup-form" action="php/register.php" method="POST">
+                <!-- Feedback messages -->
+                <div id="signup-error-message"
+                    style="display: none; color: red; text-align: center; margin-bottom: 10px;"></div>
+                <div id="signup-success-message"
+                    style="display: none; color: green; text-align: center; margin-bottom: 10px;"></div>
+
+                <div class="input-box">
+                    <input type="text" name="fullname" placeholder="Full Name" required>
+                </div>
+                <div class="input-box">
+                    <input type="email" name="email" placeholder="Email Address" required>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="password" placeholder="Password (min 6 characters)" required
+                        minlength="6">
+                </div>
+                <div class="input-box">
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                </div>
+                <button type="submit" class="btn">Signup</button>
+                <div class="register-link">
+                    <p>Already a member? <a href="#" id="switch-to-login">Login now</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="search-form-container" id="search-form-container" style="display: none;">
+        <div class="search-form">
+            <i class="fas fa-times" id="search-close"></i>
+            <form action="php/search_results.php" method="GET">
+                <input type="text" name="query" placeholder="Search our services..." required>
+                <button type="submit" class="btn">Search</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchBtn = document.getElementById('search-btn');
+            const searchFormContainer = document.getElementById('search-form-container');
+            const searchClose = document.getElementById('search-close');
+
+            searchBtn.addEventListener('click', () => {
+                searchFormContainer.style.display = 'flex';
+            });
+
+            searchClose.addEventListener('click', () => {
+                searchFormContainer.style.display = 'none';
+            });
+
+            window.addEventListener('click', (e) => {
+                if (e.target === searchFormContainer) {
+                    searchFormContainer.style.display = 'none';
+                }
+            });
+        });
+    </script>
+    <!-- Landing Section -->
+    <section class="landing-section">
+        <div class="landing-content" data-aos="fade-up">
+            <h1>Massage Therapy</h1>
+            <p>Experience the healing power of therapeutic touch with our expert massage therapists. Our range of
+                massage techniques is designed to relieve stress, reduce pain, improve circulation, and promote overall
+                wellbeing. Find the perfect massage to suit your needs.</p>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us">
+        <div class="container">
+            <h2 data-aos="fade-up">Why Choose Our Massage Therapies</h2>
+            <p class="subheading" data-aos="fade-up" data-aos-delay="100">Professional massage treatments tailored to
+                your specific needs</p>
+
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-hands"></i>
+                    </div>
+                    <h3>Certified Massage Therapists</h3>
+                    <p>Our therapists are fully certified with extensive training in various massage modalities and
+                        techniques.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Premium Quality Oils</h3>
+                    <p>We use only the highest quality therapeutic-grade oils and lotions for maximum benefit.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <h3>Customized Sessions</h3>
+                    <p>Each massage is personalized based on your specific concerns, preferences, and health conditions.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon">
+                        <i class="fas fa-procedures"></i>
+                    </div>
+                    <h3>Professional Facilities</h3>
+                    <p>Relax in our serene treatment rooms designed specifically for optimal massage therapy
+                        experiences.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="feature-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Multiple Modalities</h3>
+                    <p>Choose from Swedish, Deep Tissue, Sports, Hot Stone, Aromatherapy, and other specialized
+                        massages.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Flexible Scheduling</h3>
+                    <p>We offer convenient appointment times to fit your busy schedule, including evening and weekend
+                        options.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <h2 class="gallery-section-title">Gallery</h2>
+        <div class="gallery-content">
+            <ul class="gallery-list">
+                <li class="gallery-item"><img src="images/massage-1.jpg" alt="Hot Stone Therapy" class="gallery-image">
+                </li>
+                <li class="gallery-item"><img src="images/massage-2.jpg" alt="Relaxation massage" class="gallery-image">
+                </li>
+                <li class="gallery-item"><img src="images/massage-4.jpg" alt="Hot Stone" class="gallery-image">
+                </li>
+                <li class="gallery-item"><img src="images/massage-3.jpg" alt="Sports Massage" class="gallery-image">
+                </li>
+                <li class="gallery-item"><img src="images/massage-6.jpg" alt="Relaxation massage" class="gallery-image">
+                </li>
+                <li class="gallery-item"><img src="images/massage-5.jpg" alt="Hot Stone" class="gallery-image">
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <p class="subheading">Hear from people who experienced our massage therapies</p>
+
+            <div class="swiper testimonials-swiper" data-aos="fade-up">
+                <div class="swiper-wrapper">
+                    <!-- Testimonial 1 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="client-info">
+                                <img src="images/user-5.jpeg" alt="Andrew Clark" class="client-image">
+                                <div class="client-details">
+                                    <h4>Andrew Clark</h4>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p>"After years of chronic back pain from sitting at a desk all day, Dr.Sachini's deep
+                                    tissue
+                                    massage has been life-changing. She knows exactly where the tension points are and
+                                    how to release them. It was an amazing experience!"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="client-info">
+                                <img src="images/user-7.jpg" alt="Sanduni Nimasha" class="client-image">
+                                <div class="client-details">
+                                    <h4>Sanduni Nimasha</h4>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p>"Dr.Oshadi gave me the best Swedish massage. Her hands found every knot and worked
+                                    them
+                                    out with just the right pressure. The room was so peaceful, and I left feeling
+                                    completely relaxed and tension-free. Will definitely be back!"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="client-info">
+                                <img src="images/user-6.jpeg" alt="Sarah Miller" class="client-image">
+                                <div class="client-details">
+                                    <h4>Sarah Miller</h4>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p>"Dr. Weerasinghe's hot stone massage melted away months of built-up stress in just
+                                    one session.
+                                    The warmth of the stones combined with his expert technique created the most
+                                    relaxing experience I've ever had."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 4 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="client-info">
+                                <img src="images/user-8.jpg" alt="Zoe Parker" class="client-image">
+                                <div class="client-details">
+                                    <h4>Zoe Parker</h4>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p>"The Swedish massage I received here was absolute perfection. The therapist listened
+                                    carefully to my needs and adjusted pressure perfectly. I left feeling completely
+                                    rejuvenated. Definitely coming back!"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add pagination -->
+                <div class="swiper-pagination"></div>
+
+                <!-- Add navigation buttons -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="GreenLife Logo">
+                <h3>GreenLife Wellness Center</h3>
+                <p>Embrace holistic healing and a healthier lifestyle with us in the heart of Colombo.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="home.html">Services</a></li>
+                    <li><a href="home.html">About Us</a></li>
+                    <li><a href="home.html">Gallery</a></li>
+                    <li><a href="home.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</p>
+                <p><i class="fas fa-envelope"></i> info@greenlifewellness.lk</p>
+                <p><i class="fas fa-phone"></i> +94 77 294 0628</p>
+            </div>
+
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 GreenLife Wellness Center. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/services.js"></script>
+    <script>
+        // Initialize AOS animation library
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+</body>
+
+</html>

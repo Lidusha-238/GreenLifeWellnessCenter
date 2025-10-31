@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenLife Wellness Center</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="GreenLife Wellness Center Logo">
+            <h1>GreenLife Wellness Center</h1>
+        </div>
+
+        <!-- Mobile Menu Buttons -->
+        <button id="menu-open-button" class="fas fa-bars"></button>
+        <button id="menu-close-button" class="fas fa-times"></button>
+
+
+        <!-- Navigation -->
+        <nav class="navigation">
+            <a href="home.html">Home</a>
+            <div class="dropdown">
+                <a href=# class="dropbtn">Services <i class="fas fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="ayurvedic_therapy.html">Ayurvedic Therapy</a>
+                    <a href="yoga_meditation.html">Yoga & Meditation</a>
+                    <a href="nutrition_diet.html">Nutrition & Diet</a>
+                    <a href="physiotherapy.html">Physiotherapy</a>
+                    <a href="massage_therapy.html">Massage Therapy</a>
+                </div>
+            </div>
+            <a href="#about">About Us</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <!-- User and Search Icons -->
+        <div class="icon">
+            <div id="user-btn" class="fas fa-user"></div>
+            <div id="search-btn" class="fas fa-search"></div>
+        </div>
+    </header>
+
+    <div class="login-form-container" id="login-form-container">
+        <div class="login-form">
+            <i class="fas fa-times" id="form-close"></i>
+
+            <div class="form-tabs">
+                <div class="form-tab active" data-tab="login">Login</div>
+                <div class="form-tab" data-tab="signup">Signup</div>
+            </div>
+
+            <!-- Login Form -->
+            <form class="form-content active" id="login-form" action="php/login.php" method="POST">
+                <!-- Error Message Display -->
+                <div id="form-errors" class="error-message"
+                    style="color: red; text-align: center; margin-bottom: 10px;"></div>
+
+                <div class="input-box">
+                    <input type="email" name="email" placeholder="Email Address" required>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="register-link">
+                    <p>Not a member? <a href="#" id="switch-to-signup">Signup now</a></p>
+                </div>
+            </form>
+
+
+            <!-- Signup Form -->
+            <form class="form-content" id="signup-form" action="php/register.php" method="POST">
+                <div id="form-errors" style="display: none; color: crimson; font-weight: bold;"></div>
+                <div id="success-message" style="display: none; color: #28a745; font-weight: bold;"></div>
+
+                <div class="input-box">
+                    <input type="text" name="fullname" placeholder="Full Name" required>
+                </div>
+                <div class="input-box">
+                    <input type="email" name="email" placeholder="Email Address" required>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="password" placeholder="Password (min 6 characters)" required
+                        minlength="6">
+                </div>
+                <div class="input-box">
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                </div>
+                <button type="submit" class="btn">Signup</button>
+                <div class="register-link">
+                    <p>Already a member? <a href="#" id="switch-to-login">Login now</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="search-form-container" id="search-form-container" style="display: none;">
+        <div class="search-form">
+            <i class="fas fa-times" id="search-close"></i>
+            <form action="php/search_results.php" method="GET">
+                <input type="text" name="query" placeholder="Search our services..." required>
+                <button type="submit" class="btn">Search</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchBtn = document.getElementById('search-btn');
+            const searchFormContainer = document.getElementById('search-form-container');
+            const searchClose = document.getElementById('search-close');
+
+            searchBtn.addEventListener('click', () => {
+                searchFormContainer.style.display = 'flex';
+            });
+
+            searchClose.addEventListener('click', () => {
+                searchFormContainer.style.display = 'none';
+            });
+
+            window.addEventListener('click', (e) => {
+                if (e.target === searchFormContainer) {
+                    searchFormContainer.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+
+
+
+    <!-- Home Section -->
+    <section class="home">
+        <!-- Video background -->
+        <video autoplay muted loop class="video-background">
+            <!-- Provide multiple sources for better browser compatibility -->
+            <source src="videos/meditation video.mp4" type="video/mp4">
+        </video>
+
+        <div class="content">
+            <h1>Welcome to GreenLife Wellness Center</h1>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-details" data-aos="fade-left" data-aos-duration="1000">
+            <div class="section-content">
+                <figure class="aboutimage">
+                    <img src="images/massage.jpg" alt="Massage Therapy at GreenLife" class="about-image">
+                </figure>
+                <div class="about-details">
+                    <h2 class="about-title">About Us</h2>
+                    <p class="text">
+                        GreenLife Wellness Center, located in the heart of Colombo, is a renowned health and
+                        lifestyle
+                        organization dedicated to promoting holistic wellness. We offer a wide range of
+                        personalized
+                        services including Ayurvedic Therapy, Yoga and Meditation Classes, Nutrition and
+                        Diet
+                        Consultation,
+                        Physiotherapy, and Massage Therapy—each designed to support physical, mental, and
+                        emotional
+                        wellbeing. Our mission is to empower individuals to embrace a healthier, more
+                        balanced
+                        lifestyle by
+                        combining traditional healing methods with modern practices. Through our new
+                        interactive
+                        web
+                        platform, we aim to enhance client engagement, promote health awareness, and provide
+                        convenient
+                        access to expert wellness services and information.
+                    </p>
+                    <div class="social-icons" aria-label="Follow us on social media">
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+
+                </div>
+            </div>
+    </section>
+    </div>
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <h2 class="services-section-title">Our Services</h2>
+        <div class="services-section-content">
+            <div class="swiper">
+                <ul class="services-list swiper-wrapper">
+
+                    <li class="services swiper-slide">
+                        <div class="service-card">
+                            <img src="images/ayurvedic.jpg" alt="Ayurvedic Therapy" class="services-image" />
+                            <div class="service-content">
+                                <h3 class="services-title">
+                                    <a href="ayurvedic_therapy.html">Ayurvedic Therapy</a>
+                                </h3>
+                                <p class="services-description">
+                                    Experience the healing power of Ayurveda with our personalized therapy sessions
+                                    designed to restore balance and promote overall wellness.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="services swiper-slide">
+                        <div class="service-card">
+                            <img src="images/meditation.jpeg" alt="Yoga and Meditation" class="services-image" />
+                            <div class="service-content">
+                                <h3 class="services-title">
+                                    <a href="yoga_meditation.html">Yoga and Meditation</a>
+                                </h3>
+                                <p class="services-description">
+                                    Join our expert-led yoga and meditation classes to enhance your physical and mental
+                                    well-being, reduce stress, and achieve inner peace.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="services swiper-slide">
+                        <div class="service-card">
+                            <img src="images/diet.jpeg" alt="Nutrition and Diet Consultation" class="services-image" />
+                            <div class="service-content">
+                                <h3 class="services-title">
+                                    <a href="nutrition_diet.html">Nutrition and Diet Consultation</a>
+                                </h3>
+                                <p class="services-description">
+                                    Get personalized nutrition and diet plans from our certified nutritionists to help
+                                    you achieve your health goals and maintain a balanced lifestyle.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="services swiper-slide">
+                        <div class="service-card">
+                            <img src="images/physioterapy.jpeg" alt="Physiotherapy" class="services-image" />
+                            <div class="service-content">
+                                <h3 class="services-title">
+                                    <a href="physiotherapy.html">Physiotherapy</a>
+                                </h3>
+                                <p class="services-description">
+                                    Our skilled physiotherapists provide tailored rehabilitation programs to help you
+                                    recover from injuries, improve mobility, and enhance physical performance.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="services swiper-slide">
+                        <div class="service-card">
+                            <img src="images/therapy.jpeg" alt="Massage Therapy" class="services-image" />
+                            <div class="service-content">
+                                <h3 class="services-title">
+                                    <a href="massage_therapy.html">Massage Therapy</a>
+                                </h3>
+                                <p class="services-description">
+                                    Indulge in our relaxing massage therapy sessions that relieve tension, improve
+                                    circulation, and promote relaxation for a rejuvenating experience.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <h2 class="gallery-section-title">Gallery</h2>
+        <div class="gallery-content">
+            <ul class="gallery-list">
+                <li class="gallery-item"><img src="images/gallery-1.jpg" alt="meditation_1" class="gallery-image">
+                </li>
+                <li class="gallery-item"><img src="images/gallery-2.jpg" alt="nutrition_diet" class="gallery-image">
+                </li>
+                <li class="gallery-item"><img src="images/gallery-3.jpg" alt="yoga" class="gallery-image">
+                </li>
+                <li class="gallery-item"><img src="images/gallery-4.jpg" alt="ayurvedic" class="gallery-image">
+                </li>
+                <li class="gallery-item"><img src="images/gallery-5.jpg" alt="physiotherapy" class="gallery-image">
+                </li>
+                <li class="gallery-item"><img src="images/gallery-6.jpg" alt="meditation_2" class="gallery-image">
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="contact-info">
+            <h2 class="form-title">Contact Us</h2>
+            <p class="contact-text">If you want to know more about us, follow us on our social media:</p>
+            <div class="social-icons">
+                <i class="fab fa-facebook-f social-icon"></i>
+                <i class="fab fa-instagram social-icon"></i>
+                <i class="fab fa-twitter social-icon"></i>
+            </div>
+        </div>
+
+        <div class="map-box">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15843.28078234797!2d79.8500001!3d6.9270786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2595a352b8935%3A0x90b3fdd0f885d8da!2sColombo!5e0!3m2!1sen!2slk!4v1625243625221!5m2!1sen!2slk"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="GreenLife Logo">
+                <h3>GreenLife Wellness Center</h3>
+                <p>Embrace holistic healing and a healthier lifestyle with us in the heart of Colombo.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</p>
+                <p><i class="fas fa-envelope"></i> info@greenlifewellness.lk</p>
+                <p><i class="fas fa-phone"></i> +94 77 294 0628</p>
+            </div>
+
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 GreenLife Wellness Center. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
